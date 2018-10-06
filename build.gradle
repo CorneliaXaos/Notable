@@ -1,0 +1,60 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    baseName 'XaosDev-Notable-Interfaces'
+}
+
+group 'net.xaosdev.notable'
+version '0.0.0'
+
+sourceCompatibility = 1.8
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    group 'documentation'
+    description 'Builds a jar file containing the javadoc'
+
+    baseName = 'XaosDev-Notable-Interfaces'
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+// Set Up building for release
+publishing {
+    publications {
+        main(MavenPublication) {
+            artifactId = 'interfaces'
+            from components.java
+            artifact javadocJar
+            pom {
+                name = 'Notable Interfaces'
+                description = 'An API / SPI containing archive for the Notable Notebook editor.'
+                url = 'https://github.com/CorneliaXaos/Notable'
+                license {
+                    name = 'The Apache License, Version 2.0'
+                    url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                }
+                developers {
+                    developer {
+                        id = 'corneliaxaos'
+                        name = 'Cornelia Ada Schultz'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git@github.com:CorneliaXaos/Notable.git'
+                    developerConnection = 'scm:git:git@github.com:CorneliaXaos/Notable.git'
+                    url = 'https://github.com/CorneliaXaos/Notable'
+                }
+            }
+        }
+    }
+}
