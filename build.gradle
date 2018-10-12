@@ -18,6 +18,10 @@ version '0.0.0'
 
 sourceCompatibility = 1.8
 
+javadoc {
+    title = "Notable v$version Interfaces"
+}
+
 // build a jar with javadoc
 task javadocJar(type: Jar, dependsOn: javadoc) {
     group 'documentation'
