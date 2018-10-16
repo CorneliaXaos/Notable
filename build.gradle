@@ -13,8 +13,8 @@ jar {
     baseName 'XaosDev-Notable-Interfaces'
 }
 
-group 'net.xaosdev.notable'
-version '0.0.0'
+group GROUP
+version VERSION_STRING
 
 sourceCompatibility = 1.8
 
@@ -60,5 +60,31 @@ publishing {
                 }
             }
         }
+    }
+}
+// requires argument -Pv=<string>
+task bumpVersion {
+    group 'clerical'
+    description 'Bumps the version information project wide.'
+
+    doFirst {
+        // Make sure we have valid parameters
+        String ver
+        try {
+            ver = "$v"
+            if (!ver.matches(/\d+\.\d+\.\d+/)) {
+                throw new Exception()
+            }
+        } catch (Throwable t) {
+            throw new InvalidUserDataException('Version parameter not provided or incorrect: -Pv=\\d+\\.\\d+\\.\\d+', t)
+        }
+
+        File file = new File(projectDir.path + '/gradle.properties')
+        String contents = file.getText('UTF-8')
+
+        // Update VERSION_STRING by replacement
+        contents = contents.replaceAll(/VERSION_STRING=\d+\.\d+\.\d+/, "VERSION_STRING=$ver")
+
+        file.write(contents)
     }
 }

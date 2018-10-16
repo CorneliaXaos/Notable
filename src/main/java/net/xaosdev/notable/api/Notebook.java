@@ -17,6 +17,7 @@
 package net.xaosdev.notable.api;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * A Notebook is the primary representation used to interact with user generated content.
@@ -29,19 +30,10 @@ public interface Notebook {
     //region Interface
 
     /**
-     * Used to acquire a String-encoded piece of metadata from the Notebook.
-     * @param key the String identifying the metadata.
-     * @return the String metadata or null if not present.
+     * Used to acquire a String->String Map for storing Notebook Metadata.
+     * @return the String->String Map for storing Notebook Metadata.
      */
-    String getMetadata(final String key);
-
-    /**
-     * Used to set a metadata value.
-     * This method throws if key is null.  Null may be passed to value to clear the metadata.
-     * @param key the String identifying the metadata.
-     * @param value the String encoded metadata to set.
-     */
-    void setMetadata(final String key, final String value);
+    Map<String, String> getMetadata();
 
     /**
      * Used to acquire a hierarchical listing of all Notes within a Notebook.

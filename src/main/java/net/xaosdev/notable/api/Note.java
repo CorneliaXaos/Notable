@@ -48,5 +48,11 @@ public interface Note {
      */
     String getUnmodifiedContents();
 
+    /**
+     * Used to make the current contents of the Note be considered the unmodified contents. This is essentially saying
+     * treat the Note as having been saved to disk.
+     */
+    void makeContentsUnmodified();
+
     //endregion
 }
