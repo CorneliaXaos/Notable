@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package net.xaosdev.notable.api;
+package net.xaosdev.notable.api.schema;
 
 /**
  * This is an enumeration used to track the metadata keys provided by Notable.
@@ -27,11 +27,11 @@ public enum Metadata {
     /**
      * The name of the Notebook, assigned by the user during creation.
      */
-    NOTEBOOK_NAME("net.xaosdev.notable.api.Metadata.NOTEBOOK_NAME"),
+    NOTEBOOK_NAME("net.xaosdev.notable.api.schema.Metadata.NOTEBOOK_NAME"),
     /**
      * The last version of Notable used to edit the Notebook.
      */
-    LAST_EDITED_VERSION("net.xaosdev.notable.api.Metadata.LAST_EDITED_VERSION");
+    LAST_EDITED_VERSION("net.xaosdev.notable.api.schema.Metadata.LAST_EDITED_VERSION");
 
     //endregion
 

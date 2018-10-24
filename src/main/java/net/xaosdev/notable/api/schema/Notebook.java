@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package net.xaosdev.notable.api;
+package net.xaosdev.notable.api.schema;
 
 import java.util.List;
 import java.util.Map;

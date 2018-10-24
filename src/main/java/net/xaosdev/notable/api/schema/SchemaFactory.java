@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package net.xaosdev.notable.api;
+package net.xaosdev.notable.api.schema;
 
 /**
  * The SchemaFactory object is used by plugins and the core to create Schema Objects (Notebook, Note, etc.)

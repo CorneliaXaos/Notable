@@ -14,7 +14,10 @@
  *    limitations under the License.
  */
 
-package net.xaosdev.notable.api;
+package net.xaosdev.notable.api.processing;
+
+import net.xaosdev.notable.api.schema.Note;
+import net.xaosdev.notable.api.schema.Notebook;
 
 /**
  * This interface is used to read and write notebooks to and from disk.

@@ -16,7 +16,7 @@
 
 package net.xaosdev.notable.spi;
 
-import net.xaosdev.notable.api.NotebookInterpreter;
+import net.xaosdev.notable.api.processing.NotebookInterpreter;
 
 import java.io.File;
 

@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package net.xaosdev.notable.api;
+package net.xaosdev.notable.api.schema;
 
 /**
  * A Note is the main atomic artifact within a Notebook.
