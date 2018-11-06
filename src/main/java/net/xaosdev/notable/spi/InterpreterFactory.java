@@ -17,6 +17,7 @@
 package net.xaosdev.notable.spi;
 
 import net.xaosdev.notable.api.processing.NotebookInterpreter;
+import net.xaosdev.notable.api.state.PublicState;
 
 import java.io.File;
 
@@ -48,12 +49,14 @@ public interface InterpreterFactory {
     /**
      * Used to acquire an instance of a NotebookInterpreter as NotebookInterpreters likely have state.
      * Factories are encouraged to perform some basic validation in this step.
+     * @param state the PublicState object used to inject application state to plugin objects.
      * @param target the File targeted by the user.  (Determined by Interpreter Type.)
      * @param workingDirectory a temporary working directory provided to the Interpreter for its use.
      * @param newNotebook a boolean indicating if a new notebook should be created at target.
      * @return the instanced NotebookInterpreter or null if the target was invalid.
      */
-    NotebookInterpreter getInstance(final File target, final File workingDirectory, boolean newNotebook);
+    NotebookInterpreter getInstance(final PublicState state, File target, final File workingDirectory,
+                                    boolean newNotebook);
 
     //endregion
 
