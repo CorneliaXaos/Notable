@@ -37,6 +37,14 @@ public interface SchemaFactory {
     Note newNote();
 
     /**
+     * Used to create a new Path object for referring to other Schema objects.
+     * @param type the Type of the Path to create (immutable once set).
+     * @param subpath the subpath locating a particular instance of a schema object.
+     * @return the new Path instance.
+     */
+    Path newPath(final Path.Type type, final String subpath);
+
+    /**
      * Creates a new Note instance for use with the specified initial contents.
      * @param initialContents the contents of the new Note.
      * @return a new Note instance with initial contents.

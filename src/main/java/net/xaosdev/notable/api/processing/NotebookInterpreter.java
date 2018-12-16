@@ -16,8 +16,8 @@
 
 package net.xaosdev.notable.api.processing;
 
-import net.xaosdev.notable.api.schema.Note;
 import net.xaosdev.notable.api.schema.Notebook;
+import net.xaosdev.notable.api.schema.Path;
 
 /**
  * This interface is used to read and write notebooks to and from disk.
@@ -51,33 +51,34 @@ public interface NotebookInterpreter {
     Notebook getNotebook();
 
     /**
-     * Used to create a new Note within the targeted Notebook.
-     * @param path the path of the new Note.
-     * @return the new Note object
+     * Used to create a new Schema object within the targeted Notebook.
+     * @param path the path of the new object.
+     * @return the new Schema object, or null if an error occurred
      */
-    Note createNote(final String path);
+    Object create(final Path path);
 
     /**
-     * Used to acquire a reference to a Note contained within the targeted Notebook.
-     * @param path the String path identifying the note
-     * @return the acquired Note or null if the targeted Notebook does not contain a Note at the specified path.
+     * Used to acquire a reference to a Schema object contained within the targeted Notebook.
+     * @param path the Path identifying the Schema object
+     * @return the acquired object or null if the targeted Notebook does not contain an object at the specified path.
      */
-    Note getNote(final String path);
+    Object get(final Path path);
 
     /**
-     * Instructs the Interpreter to move a Note from one path to another.
-     * @param pathFrom the path to move a Note from.
-     * @param pathTo the path to move the Note to.
-     * @return false if any of the paths are invalid, true otherwise.
+     * Instructs the Interpreter to move a Schema Object from one Path to another.
+     * @param from the path to move from.
+     * @param to the path to move to.
+     * @return false if any of the paths are invalid, the paths do not refer to the same type, or the operation failed;
+     * true otherwise.
      */
-    boolean moveNote(final String pathFrom, final String pathTo);
+    boolean move(final Path from, final Path to);
 
     /**
-     * Instructs the Interpreter to delete a Note at a specified path.
-     * @param path the path of the Note to delete.
-     * @return false if the path is invalid, true otherwise.
+     * Instructs the Interpreter to delete a Schema Object at a specified Path.
+     * @param path the path of the object to delete.
+     * @return false if the path is invalid or the operation failed, true otherwise.
      */
-    boolean deleteNote(final String path);
+    boolean delete(final Path path);
 
     //endregion
 }

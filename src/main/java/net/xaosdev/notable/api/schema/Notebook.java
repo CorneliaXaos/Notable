@@ -16,8 +16,8 @@
 
 package net.xaosdev.notable.api.schema;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * A Notebook is the primary representation used to interact with user generated content.
@@ -36,13 +36,14 @@ public interface Notebook {
     Map<String, String> getMetadata();
 
     /**
-     * Used to acquire a hierarchical listing of all Notes within a Notebook.
-     * These paths are NOT the actual file system paths, but the hierarchical path structure of notes contained
+     * Used to acquire a set of all Paths for a particular type of Notebook artifact.
+     * These paths are NOT the actual file system paths, but the hierarchical path structure of artifacts contained
      * within a Notebook.  The paths are relative to the underlying data structure (usually a directory) containing
-     * all Notes.  An example path would be: "folder/note.md"
-     * @return a List of Strings containing the note paths.
+     * all of the specified artifacts.  An example subpath would be: "folder/note.md"
+     * @param type the Type of Paths to acquire.
+     * @return a Set of Paths containing all Paths for the specified Type.
      */
-    List<String> getNotePaths();
+    Set<Path> getPaths(final Path.Type type);
 
     //endregion
 }
