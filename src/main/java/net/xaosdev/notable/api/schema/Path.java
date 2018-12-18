@@ -25,12 +25,6 @@ public interface Path {
     //region Interface
 
     /**
-     * Gets the type of this Path.
-     * @return the Type of this Path.
-     */
-    Type getType();
-
-    /**
      * Gets the subpath of this Path
      * @return the subpath of this path.
      */
@@ -41,30 +35,6 @@ public interface Path {
      * @param subpath the string subpath
      */
     void setSubpath(final String subpath);
-
-    /**
-     * Returns true if the supplied Path is the same Type as this Path.
-     * @param other the Path to compare to.
-     * @return true if the other Path is the same Type as this Path, false otherwise.
-     */
-    boolean isSameType(final Path other);
-
-    //endregion
-
-    //region Types
-
-    /**
-     * The type of the object to refer in path.  This additional
-     * parameter is added for convenience sake even though (usually) entries
-     * will not have the same string subpath.
-     */
-    enum Type {
-        /**
-         * A Note
-         * @see net.xaosdev.notable.api.schema.Note
-         */
-        NOTE
-    }
 
     //endregion
 }

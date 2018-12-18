@@ -36,14 +36,13 @@ public interface Notebook {
     Map<String, String> getMetadata();
 
     /**
-     * Used to acquire a set of all Paths for a particular type of Notebook artifact.
+     * Used to acquire a set of Paths to the Note artifacts in a Notebook.
      * These paths are NOT the actual file system paths, but the hierarchical path structure of artifacts contained
      * within a Notebook.  The paths are relative to the underlying data structure (usually a directory) containing
      * all of the specified artifacts.  An example subpath would be: "folder/note.md"
-     * @param type the Type of Paths to acquire.
      * @return a Set of Paths containing all Paths for the specified Type.
      */
-    Set<Path> getPaths(final Path.Type type);
+    Set<Path> getNotePaths();
 
     //endregion
 }

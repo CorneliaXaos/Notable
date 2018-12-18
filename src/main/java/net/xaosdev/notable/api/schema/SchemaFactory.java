@@ -37,12 +37,11 @@ public interface SchemaFactory {
     Note newNote();
 
     /**
-     * Used to create a new Path object for referring to other Schema objects.
-     * @param type the Type of the Path to create (immutable once set).
-     * @param subpath the subpath locating a particular instance of a schema object.
+     * Used to create a new Path object for referring to notebook artifacts.
+     * @param subpath the subpath locating a particular instance of a notebook artifact.
      * @return the new Path instance.
      */
-    Path newPath(final Path.Type type, final String subpath);
+    Path newPath(final String subpath);
 
     /**
      * Creates a new Note instance for use with the specified initial contents.
